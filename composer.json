@@ -3,8 +3,19 @@
     "description": "first project",
     "license": "MIT",
     "type": "project",
-    "require": {},
+    "require": {
+        "wp-cli/php-cli-tools": "^0.11.18"
+    },
     "bin": [
-        "bin/brain-games"
-    ]
+        "bin/brain-games",
+        "bin/brain-even"
+    ],
+    "autoload": {
+        "files": [
+            "src/Cli.php"
+        ]
+    },
+    "require-dev": {
+        "squizlabs/php_codesniffer": "*"
+    }
 }
