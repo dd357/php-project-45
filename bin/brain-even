@@ -2,35 +2,15 @@
 
 <?php
 
-echo "Welcome to the Brain Games!\n";
-echo "May I have your name? ";
-$name = trim(fgets(STDIN));
-echo "Hello, {$name}!\n";
+use function BrainGames\BrainEven\GameEven;
 
-echo "Answer \"yes\" if the number is even, otherwise answer \"no\".\n";
+$autoloadPath1 = __DIR__ . '/../../../autoload.php';
+$autoloadPath2 = __DIR__ . '/../vendor/autoload.php';
 
-for ($i = 0; $i < 3; $i++) {
-    $num = rand();
-    echo "Question: {$num}\n";
-    
-    echo "Your answer: ";
-    $answer = trim(fgets(STDIN));
-    $isEven = ($num % 2 === 0) ? 'yes' : 'no';
-
-    if ($answer !== 'yes' && $answer !== 'no') {        
-        echo "'{$answer}' is wrong answer ;(. Correct answer was '{$isEven}'.\n";
-        echo "Let's try again, Bill!\n";
-        return;
-    }
-
-    if ($answer === $isEven)
-    {
-        echo "Correct!\n";
-    } else {
-        echo "'{$answer}' is wrong answer ;(. Correct answer was '{$isEven}'.\n";
-        echo "Let's try again, Bill!\n";
-        return;
-    }    
+if (file_exists($autoloadPath1)) {
+    require_once $autoloadPath1;
+} else {
+    require_once $autoloadPath2;
 }
 
-echo "Congratulations, {$name}!\n";
+GameEven();
