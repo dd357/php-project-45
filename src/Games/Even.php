@@ -1,14 +1,18 @@
 <?php
 
-namespace BrainGames\BrainEven;
+namespace BrainGames\Games\Even;
+namespace BrainGames\Engine;
+use function BrainGames\Engine\greeting1;
 
-function GameEven()
+function playEven()
 {
-    echo "Welcome to the Brain Games!\n";
+    /*echo "Welcome to the Brain Games!\n";
     echo "May I have your name? ";
     $name = trim(fgets(STDIN));
-    echo "Hello, {$name}!\n";
+    echo "Hello, {$name}!\n";*/
     
+    greeting1();
+
     echo "Answer \"yes\" if the number is even, otherwise answer \"no\".\n";
     
     for ($i = 0; $i < 3; $i++) {
