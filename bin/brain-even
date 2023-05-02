@@ -9,65 +9,28 @@ echo "Hello, {$name}!\n";
 
 echo "Answer \"yes\" if the number is even, otherwise answer \"no\".\n";
 
-while (true) {
-    $n = rand()&100;
-    echo "Question: {$n}\n";
+for ($i = 0; $i < 3; $i++) {
+    $num = rand();
+    echo "Question: {$num}\n";
     
     echo "Your answer: ";
     $answer = trim(fgets(STDIN));
+    $isEven = ($num % 2 === 0) ? 'yes' : 'no';
 
-    if ($answer === "yes" & $n % 2 === 0) {
-        echo "Correct!\n";
+    if ($answer !== 'yes' && $answer !== 'no') {        
+        echo "'{$answer}' is wrong answer ;(. Correct answer was '{$isEven}'.\n";
+        echo "Let's try again, Bill!\n";
+        return;
     }
-    
-    
-    
-    break;
+
+    if ($answer === $isEven)
+    {
+        echo "Correct!\n";
+    } else {
+        echo "'{$answer}' is wrong answer ;(. Correct answer was '{$isEven}'.\n";
+        echo "Let's try again, Bill!\n";
+        return;
+    }    
 }
 
-
-/*
-Необходимо реализовать игру "Проверка на чётность". Суть игры в следующем: пользователю показывается случайное число.
-И ему нужно ответить yes, если число чётное, или no — если нечётное:
-
-Welcome to the Brain Games!
-May I have your name? Bill
-Hello, Bill!
-Answer "yes" if the number is even, otherwise answer "no".
-Question: 15
-Your answer: yes
-В случае, если пользователь даст неверный ответ, необходимо завершить игру и вывести сообщение:
-
-'yes' is wrong answer ;(. Correct answer was 'no'.
-Let's try again, Bill!
-В случае, если пользователь ввёл верный ответ, нужно отобразить:
-
-Correct!
-и приступить к следующему числу.
-
-Пользователь должен дать правильный ответ на три вопроса подряд. После успешной игры нужно вывести:
-
-Congratulations, Bill!
-Вывод должен получиться следующий:
-
-./bin/brain-even
-
-Welcome to the Brain Games!
-May I have your name? Sam
-Hello, Sam!
-Answer "yes" if the number is even, otherwise answer "no".
-Question: 15
-Your answer: no
-Correct!
-Question: 6
-Your answer: yes
-Correct!
-Question: 7
-Your answer: no
-Correct!
-Congratulations, Sam!
-Любой некорректный ввод считается ошибкой (например, n) и равносилен неправильному ответу.
-
-
-
-*/
+echo "Congratulations, {$name}!\n";
