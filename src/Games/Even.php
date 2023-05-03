@@ -1,8 +1,7 @@
 <?php
 
 namespace BrainGames\Games\Even;
-namespace BrainGames\Engine;
-use function BrainGames\Engine\greeting1;
+use function BrainGames\Engine\greeting;
 
 function playEven()
 {
@@ -11,7 +10,7 @@ function playEven()
     $name = trim(fgets(STDIN));
     echo "Hello, {$name}!\n";*/
     
-    greeting1();
+    $name = greeting();
 
     echo "Answer \"yes\" if the number is even, otherwise answer \"no\".\n";
     
@@ -25,7 +24,7 @@ function playEven()
     
         if ($answer !== 'yes' && $answer !== 'no') {        
             echo "'{$answer}' is wrong answer ;(. Correct answer was '{$isEven}'.\n";
-            echo "Let's try again, Bill!\n";
+            echo "Let's try again, {$name}!\n";
             return;
         }
     
@@ -34,7 +33,7 @@ function playEven()
             echo "Correct!\n";
         } else {
             echo "'{$answer}' is wrong answer ;(. Correct answer was '{$isEven}'.\n";
-            echo "Let's try again, Bill!\n";
+            echo "Let's try again, {$name}!\n";
             return;
         }    
     }
