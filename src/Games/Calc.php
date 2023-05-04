@@ -10,44 +10,32 @@ function playCalc()
     $name = greeting();
     echo "What is the result of the expression?\n";
 
-    $sign = generatingSign();
+    for ($i = 0; $i < 3; $i++) {
+        $sign = generatingSign();
+        $a = rand() & 10;
+        $b = rand() & 10;
+        $res = 0;
 
-    if ($sign === "+") {
-        echo "add\n";
-    } elseif ($sign === "-") {
-        echo "sub\n";
-    } elseif ($sign === "*") {
-        echo "mult\n";
+        echo "Question: {$a} {$sign} {$b}\n";
+
+        echo "Your answer: ";
+        $answer = (int) trim(fgets(STDIN));
+
+        if ($sign === "+") {
+            $res = $a + $b;
+        } elseif ($sign === "-") {
+            $res = $a - $b;
+        } elseif ($sign === "*") {
+            $res = $a * $b;
+        }
+
+        if ($res === $answer) {
+            echo "Correct!\n";
+        } else {
+            echo "'{$answer}' is wrong answer ;(. Correct answer was '{$res}'.\n";
+            echo "Let's try again, {$name}!\n";
+            return;
+        }
     }
-
-  
+    echo "Congratulations, {$name}!\n";
 }
-
-/*
-./bin/brain-calc
-
-Welcome to the Brain Games!
-May I have your name? Sam
-Hello, Sam!
-What is the result of the expression?
-Question: 4 + 10
-Your answer: 14
-Correct!
-Question: 25 - 11
-Your answer: 14
-Correct!
-Question: 25 * 7
-Your answer: 175
-Correct!
-Congratulations, Sam!
-
-Достаточно реализовать следующие операции: +, - и *.
-Операции, как и числа, выбираются случайным образом.
-В случае, если пользователь даст неверный ответ, необходимо вывести:
-
-Question: 25 * 7
-Your answer: 145
-'145' is wrong answer ;(. Correct answer was '175'.
-Let's try again, Sam!
-и завершить игру.
-*/

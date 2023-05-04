@@ -16,5 +16,3 @@ function generatingSign()
     $sign = ['+', '-', '*'];
     return $sign[rand(0, 2)];
 }
-
-
