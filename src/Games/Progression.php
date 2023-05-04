@@ -6,18 +6,44 @@ use function BrainGames\Engine\greeting;
 
 function playProgression()
 {
-    //greeting();
+    $name = greeting();
 
-    $step = rand(1, 10);
-    $pos = rand(1, 10);
-    $first = rand(1, 50);
-    $res = "";
+    echo "What number is missing in the progression?\n";
+    
+    for ($i = 0; $i < 3; $i++) {
+        $step = rand(1, 10);
+        $pos = rand(0, 9);
+        $first = rand(1, 50);
+        $hid = 0;
 
+        echo "Question: ";
 
-    for ($i = 0; $i < 10; $i++) {
-        $res = "{$res}";
+        for ($j = 0; $j < 10; $j++) {
+            $num = $first + $step * $j;
+
+            if ($j === $pos) {
+                echo ".. ";
+                $hid = $num;            
+            } else {
+                echo "{$num} ";
+            }
+        }    
+
+        echo "\n";    
+
+        echo "Your answer: ";
+        $answer = (int) trim(fgets(STDIN));
+
+        if ($hid === $answer) {
+            echo "Correct!\n";
+        } else {
+            echo "'{$answer}' is wrong answer ;(. Correct answer was '{$hid}'.\n";
+            echo "Let's try again, {$name}!\n";
+            return;
+        }
     }
 
+    echo "Congratulations, {$name}!\n";
 
 }
 
