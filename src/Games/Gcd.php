@@ -10,11 +10,11 @@ function playGcd()
     $name = greeting();
 
     echo "Find the greatest common divisor of given numbers.\n";
-    
+
     for ($i = 0; $i < 3; $i++) {
         $a = rand(1, 30);
         $b = rand(1, 30);
-        
+
         $gcd = getGcd($a, $b);
 
         echo "Question: {$a} {$b}\n";

@@ -9,7 +9,7 @@ function playPrime() // 2, 3, 5, 7, 11, 13, 17, 19 ... 73, 79, 83, 89, 97
     $name = greeting();
 
     echo "Answer \"yes\" if given number is prime. Otherwise answer \"no\".\n";
-    
+
     for ($i = 0; $i < 3; $i++) {
         $num = rand(2, 100);
 
@@ -18,7 +18,7 @@ function playPrime() // 2, 3, 5, 7, 11, 13, 17, 19 ... 73, 79, 83, 89, 97
         $count = 0;
 
         for ($j = 2; $j <= $num; $j++) {
-            if ($num % $j === 0 ) {
+            if ($num % $j === 0) {
                 $count++;
             }
         }
@@ -48,5 +48,4 @@ function playPrime() // 2, 3, 5, 7, 11, 13, 17, 19 ... 73, 79, 83, 89, 97
     }
 
     echo "Congratulations, {$name}!\n";
-
 }
