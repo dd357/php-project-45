@@ -28,7 +28,7 @@ function playPrime() // 2, 3, 5, 7, 11, 13, 17, 19 ... 73, 79, 83, 89, 97
         echo "Your answer: ";
         $answer = trim(fgets(STDIN));
 
-        $res = ($num === 1) ? 'yes' : 'no';
+        $res = ($count === 1) ? 'yes' : 'no';
 
         if ($answer !== 'yes' && $answer !== 'no') {
             echo "'{$answer}' is wrong answer ;(. Correct answer was '{$res}'.\n";
@@ -36,7 +36,7 @@ function playPrime() // 2, 3, 5, 7, 11, 13, 17, 19 ... 73, 79, 83, 89, 97
             return;
         }
 
-        echo "num_{$num} res_{$res} answer_{$answer}\n";
+        //echo "num_{$num} res_{$res} answer_{$answer}\n";
 
         if ($answer === $res) {
             echo "Correct!\n";
