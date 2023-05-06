@@ -2,13 +2,31 @@
 
 namespace BrainGames\Games\Gcd;
 
+use function BrainGames\Engine\gameEngine;
 use function BrainGames\Engine\getGcd;
 use function BrainGames\Engine\greeting;
 
 function playGcd()
 {
     $name = greeting();
+    echo "Find the greatest common divisor of given numbers.\n";
 
+    for ($i = 0; $i < 3; $i++) {
+        $a = rand(1, 30);
+        $b = rand(1, 30);
+        $gcd = getGcd($a, $b);
+        $question = "{$a} {$b}";
+
+        if (!gameEngine($name, $question, $gcd)) {
+            return;
+        }
+    }
+    echo "Congratulations, {$name}!\n";
+}
+
+/* function playGcd()
+{
+    $name = greeting();
     echo "Find the greatest common divisor of given numbers.\n";
 
     for ($i = 0; $i < 3; $i++) {
@@ -31,4 +49,4 @@ function playGcd()
         }
     }
     echo "Congratulations, {$name}!\n";
-}
+} */

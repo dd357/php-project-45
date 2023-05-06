@@ -2,10 +2,33 @@
 
 namespace BrainGames\Games\Calc;
 
+use function BrainGames\Engine\calculate;
+use function BrainGames\Engine\gameEngine;
 use function BrainGames\Engine\generatingSign;
 use function BrainGames\Engine\greeting;
 
 function playCalc()
+{
+    $name = greeting();
+    echo "What is the result of the expression?\n";
+
+    for ($i = 0; $i < 3; $i++) {
+        $sign = generatingSign();
+        $a = rand(1, 100);
+        $b = rand(1, 100);
+        $question = "{$a} {$sign} {$b}";
+        $calc = calculate($sign, $a, $b);
+
+        if (!gameEngine($name, $question, $calc)) {
+            return;
+        }
+    }
+    echo "Congratulations, {$name}!\n";
+}
+
+
+
+/* function playCalc()
 {
     $name = greeting();
     echo "What is the result of the expression?\n";
@@ -38,4 +61,4 @@ function playCalc()
         }
     }
     echo "Congratulations, {$name}!\n";
-}
+} */

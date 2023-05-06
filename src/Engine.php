@@ -2,7 +2,7 @@
 
 namespace BrainGames\Engine;
 
-function greeting()
+function greeting(): string
 {
     echo "Welcome to the Brain Games!\n";
     echo "May I have your name? ";
@@ -11,13 +11,26 @@ function greeting()
     return $name;
 }
 
-function generatingSign()
+function generatingSign(): string
 {
     $sign = ['+', '-', '*'];
     return $sign[rand(0, 2)];
 }
 
-function getGcd($a, $b)
+function calculate(string $sign, int $op1, int $op2): int
+{
+    if ($sign === "+") {
+        $res = $op1 + $op2;
+    } elseif ($sign === "-") {
+        $res = $op1 - $op2;
+    } elseif ($sign === "*") {
+        $res = $op1 * $op2;
+    }
+
+    return $res;
+}
+
+function getGcd(int $a, int $b): int
 {
     $res = 1;
 
@@ -31,16 +44,62 @@ function getGcd($a, $b)
         }
     }
 
-    return $a ?: $b;
+    return ($a) ? $a : $b;
 }
 
-function alert()
+function isEven(int $num): string
 {
-    if ($gcd === $answer) {
+    return ($num % 2) ? 'no' : 'yes';
+}
+
+function isPrime(int $num): string
+{
+    if ($num === 0 || $num === 1) {
+        return 'no';
+    }
+
+    $count = 0;
+
+    for ($j = 2; $j <= $num; $j++) {
+        if ($num % $j === 0) {
+            $count++;
+        }
+    }
+
+    return ($count === 1) ? 'yes' : 'no';
+}
+
+function getProgression(int $first, int $step, int $pos)
+{
+    $pr = "";
+    $el = "";
+
+    for ($j = 0; $j < 10; $j++) {
+        $num = $first + $step * $j;
+
+        if ($j === $pos) {
+            $pr = "{$pr}.. ";
+            $el = $num;
+        } else {
+            $pr = "{$pr}{$num} ";
+        }
+    }
+    return [$pr, $el];
+}
+
+function gameEngine(string $name, string $question, string $correctAnswer): bool
+{
+    echo "Question: {$question}\n";
+
+    echo "Your answer: ";
+    $userAnswer = trim(fgets(STDIN));
+
+    if ($userAnswer === $correctAnswer) {
         echo "Correct!\n";
+        return true;
     } else {
-        echo "'{$answer}' is wrong answer ;(. Correct answer was '{$gcd}'.\n";
+        echo "'{$userAnswer}' is wrong answer ;(. Correct answer was '{$correctAnswer}.\n";
         echo "Let's try again, {$name}!\n";
-        return;
+        return false;
     }
 }

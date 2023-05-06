@@ -2,9 +2,26 @@
 
 namespace BrainGames\Games\Prime;
 
+use function BrainGames\Engine\gameEngine;
 use function BrainGames\Engine\greeting;
+use function BrainGames\Engine\isPrime;
 
 function playPrime() // 2, 3, 5, 7, 11, 13, 17, 19 ... 73, 79, 83, 89, 97
+{
+    $name = greeting();
+    echo "Answer \"yes\" if given number is prime. Otherwise answer \"no\".\n";
+
+    for ($i = 0; $i < 3; $i++) {
+        $num = rand(2, 100);
+
+        if (!gameEngine($name, (string) $num, isPrime($num))) {
+            return;
+        }
+    }
+    echo "Congratulations, {$name}!\n";
+}
+
+/* function playPrime() // 2, 3, 5, 7, 11, 13, 17, 19 ... 73, 79, 83, 89, 97
 {
     $name = greeting();
 
@@ -48,4 +65,4 @@ function playPrime() // 2, 3, 5, 7, 11, 13, 17, 19 ... 73, 79, 83, 89, 97
     }
 
     echo "Congratulations, {$name}!\n";
-}
+} */

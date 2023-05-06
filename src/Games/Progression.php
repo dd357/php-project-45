@@ -2,9 +2,30 @@
 
 namespace BrainGames\Games\Progression;
 
+use function BrainGames\Engine\gameEngine;
+use function BrainGames\Engine\getProgression;
 use function BrainGames\Engine\greeting;
 
 function playProgression()
+{
+    $name = greeting();
+    echo "What number is missing in the progression?\n";
+
+    for ($i = 0; $i < 3; $i++) {
+        $first = rand(1, 50);
+        $step = rand(1, 10);
+        $pos = rand(0, 9);
+
+        $progression = getProgression($first, $step, $pos);
+
+        if (!gameEngine($name, $progression[0], $progression[1])) {
+            return;
+        }
+    }
+    echo "Congratulations, {$name}!\n";
+}
+
+/* function playProgression()
 {
     $name = greeting();
 
@@ -44,4 +65,4 @@ function playProgression()
     }
 
     echo "Congratulations, {$name}!\n";
-}
+} */
