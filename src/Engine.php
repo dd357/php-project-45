@@ -6,7 +6,7 @@ function greeting(): string
 {
     echo "Welcome to the Brain Games!\n";
     echo "May I have your name? ";
-    $name = trim(fgets(STDIN));
+    $name = trim((string) fgets(STDIN));
     echo "Hello, {$name}!\n";
     return $name;
 }
@@ -19,6 +19,8 @@ function generatingSign(): string
 
 function calculate(string $sign, int $op1, int $op2): int
 {
+    $res = 0;
+
     if ($sign === "+") {
         $res = $op1 + $op2;
     } elseif ($sign === "-") {
@@ -44,12 +46,12 @@ function getGcd(int $a, int $b): int
         }
     }
 
-    return ($a) ? $a : $b;
+    return ($a !== 0) ? $a : $b;
 }
 
 function isEven(int $num): string
 {
-    return ($num % 2) ? 'no' : 'yes';
+    return ($num % 2 === 0) ? 'yes' : 'no';
 }
 
 function isPrime(int $num): string
@@ -92,7 +94,7 @@ function gameEngine(string $name, string $question, string $correctAnswer): bool
     echo "Question: {$question}\n";
 
     echo "Your answer: ";
-    $userAnswer = trim(fgets(STDIN));
+    $userAnswer = trim((string) fgets(STDIN));
 
     if ($userAnswer === $correctAnswer) {
         echo "Correct!\n";

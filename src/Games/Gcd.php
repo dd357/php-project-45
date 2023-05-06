@@ -17,7 +17,7 @@ function playGcd()
         $gcd = getGcd($a, $b);
         $question = "{$a} {$b}";
 
-        if (!gameEngine($name, $question, $gcd)) {
+        if (!gameEngine($name, $question, (string) $gcd)) {
             return;
         }
     }

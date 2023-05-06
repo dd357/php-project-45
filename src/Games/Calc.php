@@ -19,7 +19,7 @@ function playCalc()
         $question = "{$a} {$sign} {$b}";
         $calc = calculate($sign, $a, $b);
 
-        if (!gameEngine($name, $question, $calc)) {
+        if (!gameEngine($name, $question, (string) $calc)) {
             return;
         }
     }
