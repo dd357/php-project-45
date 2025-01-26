@@ -13,7 +13,7 @@ if (file_exists($autoloadPath1)) {
 
 function brainEven()
 {
-    echo "Welcome to the Brain Game!\n";
+    echo "Welcome to the Brain Games!\n";
     echo "May I have your name?\n";
 
     $name = trim(fgets(STDIN));
