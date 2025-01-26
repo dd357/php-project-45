@@ -3,4 +3,4 @@
 
 [![Maintainability](https://api.codeclimate.com/v1/badges/697408837dbec27720bb/maintainability)](https://codeclimate.com/github/dd357/php-project-45/maintainability)
 
-[![Brain-Even](https://asciinema.org/a/699937)](https://asciinema.org/a/699937)
+[![asciicast](https://asciinema.org/a/699937.svg)](https://asciinema.org/a/699937)
