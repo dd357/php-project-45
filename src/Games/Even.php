@@ -9,7 +9,7 @@ function brainEven()
 
     $name = trim(fgets(STDIN));
     echo "Hello, {$name}!\n";
-    
+
     echo "Answer \"yes\" if the number is even, otherwise answer \"no\".\n";
 
     for ($i = 0; $i < 3; $i++) {
