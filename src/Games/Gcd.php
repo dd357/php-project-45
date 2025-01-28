@@ -13,8 +13,8 @@ function brainGcd()
     echo "Find the greatest common divisor of given numbers.\n";
 
     for ($i = 0; $i < 3; $i++) {
-       $a = rand(1, 100);
-       $b = rand(1, 100);
+       $a = rand(0, 100);
+       $b = rand(0, 100);
 
         echo "Question: {$a} {$b}\n";
         echo "Your answer: ";
