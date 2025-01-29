@@ -6,17 +6,22 @@ function brainProgression()
 {
     $start = 5;
     $step = 2;
-    $pos = 6;
+    $pos = rand(0, 9);
 
-    $str = "{$start}"; // 5 7 9 11 13 .. 17 19 21 23
+    $curr = $start;
+    $str = ""; // 5 7 9 11 13 .. 17 19 21 23
     
-    for($i = 1; $i < 10; $i++ ) {
-        
-        $start += $step;
-        $str = "{$str} {$start}";
+    for($i = 0; $i < 10; $i++ ) {
+        if ($i === $pos) {
+            $str = "{$str} ..";
+            $correctAnswer = $curr;
+        } else {
+            $str = "{$str} {$curr}";
+        }
+        $curr += $step;
     }
 
-    echo $str;
+    echo "{$str} ** {$correctAnswer} ** ";
 
     // echo "Welcome to the Brain Games!\n";
     // echo "May I have your name?\n";
