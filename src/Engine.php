@@ -2,7 +2,17 @@
 
 namespace BrainGames\Engine;
 
-function brainGame($description)
+function getUsername(): string
+{
+    echo "Welcome to the Brain Games!\n";
+    echo "May I have your name?\n";
+
+    $name = trim(fgets(STDIN));
+    echo "Hello, {$name}!\n";
+    return $name;
+}
+
+function brainGame()
 {
     echo "Welcome to the Brain Games!\n";
     echo "May I have your name?\n";
@@ -10,7 +20,7 @@ function brainGame($description)
     $name = trim(fgets(STDIN));
     echo "Hello, {$name}!\n";
 
-    echo "{$description}\n";
+    //echo "{$description}\n";
 
     for ($i = 0; $i < 3; $i++) {
         $question = 1;

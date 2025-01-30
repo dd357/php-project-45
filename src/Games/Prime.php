@@ -2,7 +2,10 @@
 
 namespace BrainGames\Games\Prime;
 
-function isPrime($num)
+use function BrainGames\Engine\getUser;
+use function BrainGames\Engine\getUsername;
+
+function isPrime($num): bool
 {
     if($num < 2) {
         return false;
@@ -18,11 +21,7 @@ function isPrime($num)
 
 function brainPrime()
 {
-    $num = 9;
-
-    echo (int)(5 / 2);
-
-    //print_r(isPrime(4) ? "true\n" : "false\n");
+    getUsername();
 
 
 
