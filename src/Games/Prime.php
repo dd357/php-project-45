@@ -1,35 +1,44 @@
 <?php
 
-namespace BrainGames\Games\Progression;
+namespace BrainGames\Games\Prime;
 
-function brainProgression()
+function isPrime($num)
 {
-    $start = rand(1, 10);
-    $step = rand(2, 5);
-    $pos = rand(0, 9);
-
-    $curr = $start;
-    $str = ""; // 5 7 9 11 13 .. 17 19 21 23
-    
-    for($i = 0; $i < 10; $i++ ) {
-        if ($i === $pos) {
-            $str = "{$str} ..";
-            $correctAnswer = $curr;
-        } else {
-            $str = "{$str} {$curr}";
-        }
-        $curr += $step;
+    if($num < 2) {
+        return false;
     }
+    
+    for($i = 2; $i <= (int)($num / 2); $i++) {
+        if($num % $i === 0) {
+            return false;
+        }
+    }
+    return true;
+}
 
-    echo "{$str} ** {$correctAnswer} ** ";
+function brainPrime()
+{
+    $num = 9;
 
-    // echo "Welcome to the Brain Games!\n";
+    echo (int)(5 / 2);
+
+    //print_r(isPrime(4) ? "true\n" : "false\n");
+
+
+
+
+        
+
+
+
+
+   // echo "Welcome to the Brain Games!\n";
     // echo "May I have your name?\n";
 
     // $name = trim(fgets(STDIN));
     // echo "Hello, {$name}!\n";
 
-    // echo "What number is missing in the progression?\n";
+    // echo "Answer "yes" if given number is prime. Otherwise answer "no".\n";
 
     // for ($i = 0; $i < 3; $i++) {
     //    $a = rand(0, 100);
