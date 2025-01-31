@@ -33,7 +33,7 @@ function brainProgression()
         $str = trim($str);
         $question = "{$str}";
 
-        if (!brainGame($question, $correctAnswer, $name)) {
+        if (!brainGame($question, (string)$correctAnswer, $name)) {
             return;
         }
     }

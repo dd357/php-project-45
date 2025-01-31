@@ -37,7 +37,7 @@ function brainCalc()
                 break;
         }
 
-        if (!brainGame($question, $res, $name)) {
+        if (!brainGame($question, (string)$res, $name)) {
             return;
         }
     }
