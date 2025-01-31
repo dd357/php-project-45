@@ -20,7 +20,7 @@ function brainCalc()
         $op = $sign[rand(0, 2)];
 
         $question = "{$op1} {$op} {$op2}";
-        
+
         $res = 0;
 
         switch ($op) {
@@ -37,8 +37,8 @@ function brainCalc()
                 break;
         }
 
-        if(!brainGame($question, $res, $name)){
-            return;    
+        if (!brainGame($question, $res, $name)) {
+            return;
         }
     }
 

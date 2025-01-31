@@ -7,12 +7,12 @@ use function BrainGames\Engine\getUsername;
 
 function isPrime($num)
 {
-    if($num < 2) {
+    if ($num < 2) {
         return "no";
     }
-    
-    for($i = 2; $i <= (int)($num / 2); $i++) {
-        if($num % $i === 0) {
+
+    for ($i = 2; $i <= (int)($num / 2); $i++) {
+        if ($num % $i === 0) {
             return "no";
         }
     }
@@ -28,8 +28,8 @@ function brainPrime()
     for ($i = 0; $i < 3; $i++) {
         $num = rand(0, 15);
 
-        if(!brainGame($num, isPrime($num), $name)){
-            return;    
+        if (!brainGame($num, isPrime($num), $name)) {
+            return;
         }
     }
 

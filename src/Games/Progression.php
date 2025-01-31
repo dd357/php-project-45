@@ -1,6 +1,7 @@
 <?php
 
 namespace BrainGames\Games\Progression;
+
 use function BrainGames\Engine\brainGame;
 use function BrainGames\Engine\getUsername;
 
@@ -9,7 +10,7 @@ function brainProgression()
     $name = getUsername();
 
     echo "What number is missing in the progression?\n";
-    
+
     for ($i = 0; $i < 3; $i++) {
         $start = rand(1, 10);
         $step = rand(2, 5);
@@ -17,8 +18,8 @@ function brainProgression()
 
         $curr = $start;
         $str = "";
-        
-        for($j = 0; $j < 10; $j++ ) {
+
+        for ($j = 0; $j < 10; $j++) {
             if ($j === $pos) {
                 $str = "{$str} ..";
                 $correctAnswer = $curr;
@@ -30,9 +31,9 @@ function brainProgression()
 
         $question = "{$str}";
 
-        if(!brainGame($question, $correctAnswer, $name)){
-            return;    
-        }        
+        if (!brainGame($question, $correctAnswer, $name)) {
+            return;
+        }
     }
 
     echo "Congratulations, {$name}!\n";

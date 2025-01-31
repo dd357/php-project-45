@@ -1,6 +1,7 @@
 <?php
 
 namespace BrainGames\Games\Even;
+
 use function BrainGames\Engine\brainGame;
 use function BrainGames\Engine\getUsername;
 
@@ -15,8 +16,8 @@ function brainEven()
         $even = ($rnd % 2 === 0) ? "yes" : "no";
         $question = "$rnd";
 
-        if(!brainGame($question, $even, $name)){
-            return;    
+        if (!brainGame($question, $even, $name)) {
+            return;
         }
     }
 
