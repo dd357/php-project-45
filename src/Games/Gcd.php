@@ -23,7 +23,7 @@ function brainGcd()
             $a = $t;
         }
 
-        $res =  $a;
+        $res = (string)$a;
 
         if (!brainGame($question, $res, $name)) {
             return;

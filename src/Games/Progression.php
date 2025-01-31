@@ -18,6 +18,7 @@ function brainProgression()
 
         $curr = $start;
         $str = "";
+        $correctAnswer = "";
 
         for ($j = 0; $j < 10; $j++) {
             if ($j === $pos) {

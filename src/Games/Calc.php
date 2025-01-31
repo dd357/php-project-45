@@ -21,7 +21,7 @@ function brainCalc()
 
         $question = "{$op1} {$op} {$op2}";
 
-        $res = 0;
+        $res = "";
 
         switch ($op) {
             case '+':

@@ -7,7 +7,7 @@ function getUsername(): string
     echo "Welcome to the Brain Games!\n";
     echo "May I have your name?\n";
 
-    $name = trim(fgets(STDIN));
+    $name = trim((string)fgets(STDIN));
     echo "Hello, {$name}!\n";
     return $name;
 }
@@ -17,7 +17,7 @@ function brainGame(string $question, string $correctAnswer, string $name): bool
     echo "Question: {$question}\n";
 
     echo "Your answer: ";
-    $userAnswer = trim(fgets(STDIN));
+    $userAnswer = trim((string)fgets(STDIN));
 
     if ($correctAnswer !== $userAnswer) {
         echo "'{$userAnswer}' is wrong answer ;(. Correct answer was '{$correctAnswer}'.\n";

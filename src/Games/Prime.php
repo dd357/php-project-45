@@ -5,7 +5,7 @@ namespace BrainGames\Games\Prime;
 use function BrainGames\Engine\brainGame;
 use function BrainGames\Engine\getUsername;
 
-function isPrime($num)
+function isPrime(int $num): string
 {
     if ($num < 2) {
         return "no";
