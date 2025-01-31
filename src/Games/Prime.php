@@ -30,7 +30,7 @@ function brainPrime()
 
         $correctAnswer = isPrime($num);
 
-        if (!brainGame($num, $correctAnswer, $name)) {
+        if (!brainGame((string)$num, $correctAnswer, $name)) {
             return;
         }
     }
