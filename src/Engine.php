@@ -12,32 +12,19 @@ function getUsername(): string
     return $name;
 }
 
-function brainGame()
+function brainGame($question, $correctAnswer, $name): bool
 {
-    echo "Welcome to the Brain Games!\n";
-    echo "May I have your name?\n";
+    echo "Question: {$question}\n";
 
-    $name = trim(fgets(STDIN));
-    echo "Hello, {$name}!\n";
+    echo "Your answer: ";
+    $userAnswer = trim(fgets(STDIN));
 
-    //echo "{$description}\n";
-
-    for ($i = 0; $i < 3; $i++) {
-        $question = 1;
-        $correctAnswer = 1;
-
-        echo "Question: {$question}\n";
-        echo "Your answer: ";
-        $answer = trim(fgets(STDIN));
-
-        if ($correctAnswer !== $answer) {
-            echo "'{$answer}' is wrong answer ;(. Correct answer was '{$correctAnswer}'.\n";
-            echo "Let's try again, {$name}!\n";
-            return;
-        }
-        echo "Correct!\n";
+    if ($correctAnswer !== $userAnswer) {
+        echo "'{$userAnswer}' is wrong answer ;(. Correct answer was '{$correctAnswer}'.\n";
+        echo "Let's try again, {$name}!\n";
+        return false;
     }
 
-    echo "Congratulations, {$name}!\n";
-    return;
+    echo "Correct!\n";
+    return true;
 }

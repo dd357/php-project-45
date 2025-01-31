@@ -2,68 +2,38 @@
 
 namespace BrainGames\Games\Prime;
 
+use function BrainGames\Engine\brainGame;
 use function BrainGames\Engine\getUser;
 use function BrainGames\Engine\getUsername;
 
-function isPrime($num): bool
+function isPrime($num)
 {
     if($num < 2) {
-        return false;
+        return "no";
     }
     
     for($i = 2; $i <= (int)($num / 2); $i++) {
         if($num % $i === 0) {
-            return false;
+            return "no";
         }
     }
-    return true;
+    return "yes";
 }
 
 function brainPrime()
 {
-    getUsername();
+    $name = getUsername();
 
+    echo "Answer \"yes\" if given number is prime. Otherwise answer \"no\".\n";
 
+    for ($i = 0; $i < 3; $i++) {
+        $num = rand(0, 15);
 
+        if(!brainGame($num, isPrime($num), $name)){
+            return;    
+        }
+    }
 
-        
-
-
-
-
-   // echo "Welcome to the Brain Games!\n";
-    // echo "May I have your name?\n";
-
-    // $name = trim(fgets(STDIN));
-    // echo "Hello, {$name}!\n";
-
-    // echo "Answer "yes" if given number is prime. Otherwise answer "no".\n";
-
-    // for ($i = 0; $i < 3; $i++) {
-    //    $a = rand(0, 100);
-    //    $b = rand(0, 100);
-
-    //     echo "Question: {$a} {$b}\n";
-    //     echo "Your answer: ";
-    //     $answer = (int) trim(fgets(STDIN));
-
-    //     while ($b != 0) {
-    //         $t = $b;
-    //         $b = $a % $b;
-    //         $a = $t;
-    //     }
-       
-    //     $res =  $a;
-
-    //     if ($res !== $answer) {
-    //         echo "'{$answer}' is wrong answer ;(. Correct answer was '{$res}'.\n";
-    //         echo "Let's try again, {$name}!\n";
-    //         return;
-    //     }
-
-    //     echo "Correct!\n";
-    // }
-
-    // echo "Congratulations, {$name}!\n";
-    // return;
+    echo "Congratulations, {$name}!\n";
+    return;
 }
