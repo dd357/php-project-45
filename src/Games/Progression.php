@@ -1,61 +1,40 @@
 <?php
 
 namespace BrainGames\Games\Progression;
+use function BrainGames\Engine\brainGame;
+use function BrainGames\Engine\getUsername;
 
 function brainProgression()
 {
-    $start = rand(1, 10);
-    $step = rand(2, 5);
-    $pos = rand(0, 9);
+    $name = getUsername();
 
-    $curr = $start;
-    $str = ""; // 5 7 9 11 13 .. 17 19 21 23
+    echo "What number is missing in the progression?\n";
     
-    for($i = 0; $i < 10; $i++ ) {
-        if ($i === $pos) {
-            $str = "{$str} ..";
-            $correctAnswer = $curr;
-        } else {
-            $str = "{$str} {$curr}";
+    for ($i = 0; $i < 3; $i++) {
+        $start = rand(1, 10);
+        $step = rand(2, 5);
+        $pos = rand(0, 9);
+
+        $curr = $start;
+        $str = "";
+        
+        for($j = 0; $j < 10; $j++ ) {
+            if ($j === $pos) {
+                $str = "{$str} ..";
+                $correctAnswer = $curr;
+            } else {
+                $str = "{$str} {$curr}";
+            }
+            $curr += $step;
         }
-        $curr += $step;
+
+        $question = "{$str}";
+
+        if(!brainGame($question, $correctAnswer, $name)){
+            return;    
+        }        
     }
 
-    echo "{$str} ** {$correctAnswer} ** ";
-
-    // echo "Welcome to the Brain Games!\n";
-    // echo "May I have your name?\n";
-
-    // $name = trim(fgets(STDIN));
-    // echo "Hello, {$name}!\n";
-
-    // echo "What number is missing in the progression?\n";
-
-    // for ($i = 0; $i < 3; $i++) {
-    //    $a = rand(0, 100);
-    //    $b = rand(0, 100);
-
-    //     echo "Question: {$a} {$b}\n";
-    //     echo "Your answer: ";
-    //     $answer = (int) trim(fgets(STDIN));
-
-    //     while ($b != 0) {
-    //         $t = $b;
-    //         $b = $a % $b;
-    //         $a = $t;
-    //     }
-       
-    //     $res =  $a;
-
-    //     if ($res !== $answer) {
-    //         echo "'{$answer}' is wrong answer ;(. Correct answer was '{$res}'.\n";
-    //         echo "Let's try again, {$name}!\n";
-    //         return;
-    //     }
-
-    //     echo "Correct!\n";
-    // }
-
-    // echo "Congratulations, {$name}!\n";
-    // return;
+    echo "Congratulations, {$name}!\n";
+    return;
 }

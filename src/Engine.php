@@ -12,7 +12,7 @@ function getUsername(): string
     return $name;
 }
 
-function brainGame($question, $correctAnswer, $name): bool
+function brainGame(string $question, string $correctAnswer, string $name): bool
 {
     echo "Question: {$question}\n";
 

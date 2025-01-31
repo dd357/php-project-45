@@ -2,13 +2,12 @@
 
 namespace BrainGames\Games\Calc;
 
+use function BrainGames\Engine\brainGame;
+use function BrainGames\Engine\getUsername;
+
 function brainCalc()
 {
-    echo "Welcome to the Brain Games!\n";
-    echo "May I have your name?\n";
-
-    $name = trim(fgets(STDIN));
-    echo "Hello, {$name}!\n";
+    $name = getUsername();
 
     echo "What is the result of the expression?\n";
 
@@ -20,10 +19,8 @@ function brainCalc()
 
         $op = $sign[rand(0, 2)];
 
-        echo "Question: {$op1} {$op} {$op2}\n";
-        echo "Your answer: ";
-        $answer = (int) trim(fgets(STDIN));
-
+        $question = "{$op1} {$op} {$op2}";
+        
         $res = 0;
 
         switch ($op) {
@@ -40,13 +37,9 @@ function brainCalc()
                 break;
         }
 
-        if ($res !== $answer) {
-            echo "'{$answer}' is wrong answer ;(. Correct answer was '{$res}'.\n";
-            echo "Let's try again, {$name}!\n";
-            return;
+        if(!brainGame($question, $res, $name)){
+            return;    
         }
-
-        echo "Correct!\n";
     }
 
     echo "Congratulations, {$name}!\n";

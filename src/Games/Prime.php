@@ -3,7 +3,6 @@
 namespace BrainGames\Games\Prime;
 
 use function BrainGames\Engine\brainGame;
-use function BrainGames\Engine\getUser;
 use function BrainGames\Engine\getUsername;
 
 function isPrime($num)

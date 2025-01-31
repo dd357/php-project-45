@@ -1,14 +1,12 @@
 <?php
 
 namespace BrainGames\Games\Gcd;
+use function BrainGames\Engine\brainGame;
+use function BrainGames\Engine\getUsername;
 
 function brainGcd()
 {
-    echo "Welcome to the Brain Games!\n";
-    echo "May I have your name?\n";
-
-    $name = trim(fgets(STDIN));
-    echo "Hello, {$name}!\n";
+    $name = getUsername();
 
     echo "Find the greatest common divisor of given numbers.\n";
 
@@ -16,9 +14,7 @@ function brainGcd()
        $a = rand(0, 100);
        $b = rand(0, 100);
 
-        echo "Question: {$a} {$b}\n";
-        echo "Your answer: ";
-        $answer = (int) trim(fgets(STDIN));
+        $question = "{$a} {$b}";
 
         while ($b != 0) {
             $t = $b;
@@ -28,13 +24,9 @@ function brainGcd()
        
         $res =  $a;
 
-        if ($res !== $answer) {
-            echo "'{$answer}' is wrong answer ;(. Correct answer was '{$res}'.\n";
-            echo "Let's try again, {$name}!\n";
-            return;
+        if(!brainGame($question, $res, $name)){
+            return;    
         }
-
-        echo "Correct!\n";
     }
 
     echo "Congratulations, {$name}!\n";
