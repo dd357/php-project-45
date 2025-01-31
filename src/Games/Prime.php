@@ -28,7 +28,9 @@ function brainPrime()
     for ($i = 0; $i < 3; $i++) {
         $num = rand(0, 15);
 
-        if (!brainGame($num, (string)isPrime($num), $name)) {
+        $correctAnswer = isPrime($num);
+
+        if (!brainGame($num, $correctAnswer, $name)) {
             return;
         }
     }
