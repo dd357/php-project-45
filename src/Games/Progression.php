@@ -29,6 +29,7 @@ function brainProgression()
             $curr += $step;
         }
 
+        $str = trim($str);
         $question = "{$str}";
 
         if (!brainGame($question, $correctAnswer, $name)) {
